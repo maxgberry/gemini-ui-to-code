@@ -1,12 +1,18 @@
 import streamlit as st
 import pathlib
 from PIL import Image
-import google.generativeai as genai
+import os
+from google.generativeai import genai
 
-# Configure the API key directly in the script
-API_KEY = 'YOUR KEY'
+# Retrieve the API key from environment variables
+API_KEY = os.getenv('API_KEY')
+
+# Check if the API key is present
+if API_KEY is None:
+    raise ValueError("API_KEY environment variable is not set")
+
+# Configure the API key
 genai.configure(api_key=API_KEY)
-
 # Generation configuration
 generation_config = {
     "temperature": 1,
