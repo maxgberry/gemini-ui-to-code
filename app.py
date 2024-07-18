@@ -2,7 +2,7 @@ import streamlit as st
 import pathlib
 from PIL import Image
 import os
-from google.generativeai import genai
+import genai from google.generativeai 
 
 # Retrieve the API key from environment variables
 API_KEY = os.getenv('API_KEY')
